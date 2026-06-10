@@ -1,0 +1,98 @@
+<%- include('partials/header') %>
+<div class="bg-white p-4 rounded-3 shadow-sm border mb-4 max-width-600 mx-auto">
+    <h3 class="text-dark border-bottom pb-2 fw-bold text-center mb-4 fs-4">⚡ Assistente de Stack Ideal</h3>
+    <form id="formAssistente" onsubmit="gerarRecomendacao(event)">
+        <div class="mb-3">
+            <label class="form-label text-secondary fw-bold small">1. Qual é o tipo do seu projeto?</label>
+            <select id="tipo" class="form-select" required>
+                <option value="" disabled selected>Selecione uma opção...</option>
+                <option value="institucional">Site Institucional / Landing Page</option>
+                <option value="sistema">Sistema de Gestão / Web App</option>
+                <option value="ecommerce">Loja Virtual (E-commerce)</option>
+                <option value="mobile">Aplicativo Mobile</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-secondary fw-bold small">2. Volume estimado de acessos?</label>
+            <select id="usuarios" class="form-select" required>
+                <option value="" disabled selected>Selecione uma opção...</option>
+                <option value="baixo">Baixo (Até 500 usuários ativos)</option>
+                <option value="alto">Alto (Mais de 5.000 acessos simultâneos)</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label text-secondary fw-bold small">3. Orçamento para infraestrutura?</label>
+            <select id="orcamento" class="form-select" required>
+                <option value="" disabled selected>Selecione uma opção...</option>
+                <option value="gratuito">Mínimo (Ferramentas gratuitas)</option>
+                <option value="corporativo">Corporativo (Máxima performance)</option>
+            </select>
+        </div>
+        <div class="d-grid gap-2 mt-4">
+            <button type="submit" class="btn btn-info text-white fw-bold btn-lg shadow-sm fs-6">Processar Diagnóstico</button>
+            <a href="/servicos" class="btn btn-outline-secondary">Voltar</a>
+        </div>
+    </form>
+
+    <div id="resultadoConsultoria" class="mt-4 p-3 border border-success rounded bg-light d-none">
+        <h5 class="fw-bold text-success text-center mb-3 fs-5">✓ Recomendação Gerada!</h5>
+        <hr>
+        <div id="conteudoDiagnostico" class="text-dark small"></div>
+        <button type="button" class="btn btn-sm btn-dark w-100 mt-3" onclick="reiniciarAssistente()">Refazer Simulação</button>
+    </div>
+</div>
+
+<script>
+    function gerarRecomendacao(event) {
+        event.preventDefault();
+        const tipo = document.getElementById('tipo').value;
+        const usuarios = document.getElementById('usuarios').value;
+        const orcamento = document.getElementById('orcamento').value;
+
+        let front = "HTML5 + CSS3 + Bootstrap 5";
+        let back = "Node.js + Express";
+        let banco = "SQLite (Local)";
+        let nuvem = "Render (Plano Gratuito)";
+
+        if (tipo === 'institucional') {
+            front = "HTML5 + Tailwind CSS";
+            back = "Não aplicável (Site Estático)";
+            banco = "Não aplicável";
+            nuvem = "Vercel (Plano Free)";
+        } else if (tipo === 'ecommerce') {
+            front = "React.js + Bootstrap";
+            back = "Node.js (API REST)";
+            banco = "PostgreSQL (Robusto)";
+            nuvem = "Render Cloud";
+        } else if (tipo === 'mobile') {
+            front = "Framework Flutter (Dart)";
+            back = "Node.js / Firebase";
+            banco = "MongoDB (NoSQL)";
+            nuvem = "Google Cloud Platform";
+        }
+
+        if (usuarios === 'alto' || orcamento === 'corporativo') {
+            if(banco === 'SQLite (Local)') banco = "PostgreSQL Cluster";
+            nuvem = "Amazon Web Services (AWS Cloud Elástica)";
+        }
+
+        document.getElementById('conteudoDiagnostico').innerHTML = `
+            <p><strong>Projeto:</strong> <span class="text-capitalize">${tipo}</span></p>
+            <div class="p-3 bg-white border rounded mb-2">
+                <p class="m-1"><strong>🎨 Front-End:</strong> ${front}</p>
+                <p class="m-1"><strong>⚙️ Back-End:</strong> ${back}</p>
+                <p class="m-1"><strong>🗄️ Banco de Dados:</strong> ${banco}</p>
+                <p class="m-1"><strong>☁️ Hospedagem:</strong> ${nuvem}</p>
+            </div>
+        `;
+        document.getElementById('formAssistente').classList.add('d-none');
+        document.getElementById('resultadoConsultoria').classList.remove('d-none');
+    }
+
+    function reiniciarAssistente() {
+        document.getElementById('formAssistente').reset();
+        document.getElementById('formAssistente').classList.remove('d-none');
+        document.getElementById('resultadoConsultoria').classList.add('d-none');
+    }
+</script>
+<%- include('partials/footer') %>
