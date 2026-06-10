@@ -1,0 +1,44 @@
+<%- include('partials/header') %>
+<div class="bg-white p-3 p-md-4 rounded-3 shadow-sm border">
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center border-bottom pb-3 mb-3 gap-2">
+        <h2 class="fw-bold text-dark m-0 fs-4">Painel Administrativo Real (SQLite3)</h2>
+        <a href="/admin/cadastrar" class="btn btn-success fw-bold btn-sm py-2">+ Cadastrar Tecnologia</a>
+    </div>
+    
+    <form action="/admin" method="GET" class="row g-2 mb-3">
+        <div class="col-12 col-md-10">
+            <input type="text" name="search" class="form-control" placeholder="Pesquisar ferramentas do banco..." value="<%= search %>">
+        </div>
+        <div class="col-12 col-md-2">
+            <button type="submit" class="btn btn-dark w-100">Pesquisar</button>
+        </div>
+    </form>
+
+    <div class="table-responsive">
+        <table class="table table-hover align-middle border small">
+            <thead class="table-dark">
+                <tr><th>ID</th><th>Tecnologia</th><th>Descrição</th><th class="text-center">Ações</th></tr>
+            </thead>
+            <tbody>
+                <% if (tecnologias.length === 0) { %>
+                    <tr><td colspan="4" class="text-center text-muted">Nenhuma tecnologia localizada.</td></tr>
+                <% } else { %>
+                    <% tecnologias.forEach(tech => { %>
+                        <tr>
+                            <td><%= tech.id %></td>
+                            <td class="fw-bold"><%= tech.nome %></td>
+                            <td class="text-muted"><%= tech.descricao %></td>
+                            <td class="text-center">
+                                <div class="d-flex gap-1 justify-content-center">
+                                    <a href="/admin/editar/<%= tech.id %>" class="btn btn-warning btn-sm fw-bold">Editar</a>
+                                    <a href="/admin/deletar/<%= tech.id %>" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir do SQLite?')">Excluir</a>
+                                </div>
+                            </td>
+                        </tr>
+                    <% }) %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<%- include('partials/footer') %>
