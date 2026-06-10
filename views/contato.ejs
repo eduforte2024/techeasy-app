@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+<div class="bg-white p-4 rounded-3 shadow-sm border max-width-600 mx-auto">
+    <h2 class="text-dark border-bottom pb-2 fw-bold mb-4 fs-4">Fale Conosco</h2>
+    <form onsubmit="event.preventDefault(); alert('Obrigado! Entraremos em contato em breve.');">
+        <div class="mb-3"><label class="form-label text-secondary fw-semibold small">Nome Completo</label><input type="text" class="form-control" required></div>
+        <div class="mb-3"><label class="form-label text-secondary fw-semibold small">E-mail Corporativo</label><input type="email" class="form-control" required></div>
+        <div class="mb-3"><label class="form-label text-secondary fw-semibold small">Mensagem</label><textarea class="form-control" rows="4" required></textarea></div>
+        <button type="submit" class="btn btn-dark w-100 shadow-sm">Enviar Contato</button>
+    </form>
+</div>
+<%- include('partials/footer') %>
