@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechEasy - Protótipo Mobile Corrigido</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .max-width-600 {
+            max-width: 600px;
+        }
+        .secao-teste {
+            display: none;
+        }
+        .secao-ativa {
+            display: block;
+        }
+        /* Melhora o feedback visual do clique no celular */
+        .nav-link, .navbar-brand, .btn-outline-info {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100 bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 shadow-sm">
+        <div class="container">
+            <span class="navbar-brand fw-bold text-info" onclick="navegar('home')">⚡ TechEasy</span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><span class="nav-link" onclick="navegar('home')">Home</span></li>
+                    <li class="nav-item"><span class="nav-link" onclick="navegar('sobre')">Sobre</span></li>
+                    <li class="nav-item"><span class="nav-link" onclick="navegar('servicos')">Serviços</span></li>
+                    <li class="nav-item"><span class="nav-link" onclick="navegar('contato')">Contato</span></li>
+                    <li class="nav-item mt-2 mt-lg-0"><span class="btn btn-outline-info btn-sm ms-lg-2 px-3 text-white d-block d-lg-inline-block" onclick="navegar('login')">Área Restrita</span></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container flex-grow-1">
+
+        <div id="home" class="secao-teste secao-ativa">
+            <div class="p-4 p-md-5 mb-4 bg-white rounded-3 shadow-sm border text-center text-md-start">
+                <div class="container-fluid py-3">
+                    <h1 class="display-5 fw-bold text-dark fs-2 fs-md-1">A rota mais fácil para sua infraestrutura</h1>
+                    <p class="col-md-8 fs-5 text-muted my-4">Ajudamos startups e grandes empresas a escolherem e validarem a stack tecnológica perfeita para escalar suas ideias sem desperdício de tempo e orçamento.</p>
+                    <button type="button" class="btn btn-info btn-lg text-white shadow-sm w-100 w-md-auto" onclick="navegar('servicos')">Conheça Nossos Serviços</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="sobre" class="secao-teste">
+            <div class="bg-white p-4 p-md-5 rounded-3 shadow-sm border">
+                <h2 class="text-dark border-bottom pb-2 fw-bold fs-3">Sobre a TechEasy</h2>
+                <p class="lead mt-3 text-muted fs-6">Nascemos com o propósito de simplificar o ecossistema tecnológico mundial. Nossa equipe avalia tendências de mercado, performance de frameworks e custos de nuvem para entregar diagnósticos técnicos precisos aos nossos clientes.</p>
+            </div>
+        </div>
+
+        <div id="servicos" class="secao-teste">
+            <div class="bg-white p-4 p-md-5 rounded-3 shadow-sm border mb-5">
+                <div class="text-center mb-4">
+                    <h2 class="text-dark fw-bold display-6 fs-3">Nossos Serviços Especializados</h2>
+                    <p class="text-muted fs-6">Escolha uma das soluções abaixo para entender como simplificamos a sua jornada tecnológica.</p>
+                </div>
+
+                <div class="card border-info bg-light mb-4 shadow-sm">
+                    <div class="card-body p-4 text-center">
+                        <span class="badge bg-info text-white mb-2 fs-6">Exclusivo TechEasy</span>
+                        <h3 class="card-title fw-bold text-dark fs-4">Não sabe por onde começar?</h3>
+                        <p class="card-text fs-6 text-muted mb-3">Use nosso Assistente Virtual Inteligente. Responda 3 perguntas e receba na hora a recomendação de stack ideal.</p>
+                        <button type="button" class="btn btn-info text-white btn-lg fw-bold w-100 shadow-sm" onclick="navegar('servico-assistente')">Descobrir Minha Stack Ideal →</button>
+                    </div>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 bg-light p-2">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold text-dark fs-5">1. Consultoria de Arquitetura</h5>
+                                <p class="card-text text-muted small flex-grow-1">Definição detalhada de qual linguagem, framework, banco de dados e nuvem utilizar no seu projeto.</p>
+                                <button type="button" class="btn btn-outline-info w-100 mt-3 fw-bold" onclick="navegar('servico-arquitetura')">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 bg-light p-2">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold text-dark fs-5">2. Auditoria de Código</h5>
+                                <p class="card-text text-muted small flex-grow-1">Análise profunda do seu software atual para detectar gargalos de performance e vulnerabilidades.</p>
+                                <button type="button" class="btn btn-outline-info w-100 mt-3 fw-bold" onclick="navegar('servico-auditoria')">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 bg-light p-2">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold text-dark fs-5">3. Planejamento Ágil</h5>
+                                <p class="card-text text-muted small flex-grow-1">Organização de fluxos de trabalho usando Scrum, Kanban e montagem eficiente do backlog inicial.</p>
+                                <button type="button" class="btn btn-outline-info w-100 mt-3 fw-bold" onclick="navegar('servico-agil')">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 bg-light p-2">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold text-dark fs-5">4. Infraestrutura Cloud</h5>
+                                <p class="card-text text-muted small flex-grow-1">Análise comparativa e escolha estratégica entre provedores como AWS, Azure, Render ou Vercel.</p>
+                                <button type="button" class="btn btn-outline-info w-100 mt-3 fw-bold" onclick="navegar('servico-cloud')">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 bg-light p-2">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold text-dark fs-5">5. Bancos de Dados</h5>
+                                <p class="card-text text-muted small flex-grow-1">Planejamento da persistência de dados ideal baseada em volume: SQL ou NoSQL.</p>
+                                <button type="button" class="btn btn-outline-info w-100 mt-3 fw-bold" onclick="navegar('servico-banco')">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm border-0 bg-light p-2">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold text-dark fs-5">6. Segurança da Informação</h5>
+                                <p class="card-text text-muted small flex-grow-1">Implementação de criptografia, controle restrito de acessos e adequações básicas à LGPD.</p>
+                                <button type="button" class="btn btn-outline-info w-100 mt-3 fw-bold" onclick="navegar('servico-seguranca')">Ver detalhes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="servico-arquitetura" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+                <h2 class="text-dark fw-bold border-bottom pb-3 mb-4 fs-4">⚡ Consultoria de Arquitetura</h2>
+                <h5 class="fw-bold text-info fs-6">O que é?</h5>
+                <p class="text-muted small">A Consultoria de Arquitetura ajuda empresas a tomarem decisões tecnológicas fundamentais de forma correta antes de começarem a programar.</p>
+                <h5 class="fw-bold text-info mb-2 fs-6">Tabela Prática de Recomendações</h5>
+                <div class="table-responsive mb-3">
+                    <table class="table table-bordered align-middle small">
+                        <thead class="table-dark">
+                            <tr><th>Cenário</th><th>Recomendação Ideal</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Institucional</td><td>HTML5 + CSS3 + JS (Vercel)</td></tr>
+                            <tr><td>ERP / Sistema</td><td>Node.js + Express + MySQL (Render)</td></tr>
+                            <tr><td>E-commerce</td><td>React.js + Node.js + PostgreSQL</td></tr>
+                            <tr><td>Mobile</td><td>Framework Flutter</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="button" onclick="navegar('servicos')" class="btn btn-secondary w-100">← Voltar para Serviços</button>
+            </div>
+        </div>
+
+        <div id="servico-auditoria" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+                <h2 class="text-dark fw-bold border-bottom pb-3 mb-4 fs-4">🔍 Auditoria de Código</h2>
+                <h5 class="fw-bold text-info fs-6">O que é?</h5>
+                <p class="text-muted small">Análise técnica completa do sistema para encontrar problemas antes que eles se tornem prejuízos em produção.</p>
+                <div class="row g-2 mb-3">
+                    <div class="col-12">
+                        <div class="p-3 bg-light rounded">
+                            <h6 class="fs-6 fw-bold">O que avaliamos?</h6>
+                            <small class="text-muted d-block">Código-fonte, estrutura arquitetural MVC, indexação de bancos de dados e brechas de segurança.</small>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" onclick="navegar('servicos')" class="btn btn-secondary w-100">← Voltar para Serviços</button>
+            </div>
+        </div>
+
+        <div id="servico-agil" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+                <h2 class="text-dark fw-bold border-bottom pb-3 mb-4 fs-4">📅 Planejamento Ágil</h2>
+                <h5 class="fw-bold text-info fs-6">O que é?</h5>
+                <p class="text-muted small">Auxiliamos empresas a organizar equipes e tarefas utilizando metodologias ágeis como Scrum e Kanban.</p>
+                <h5 class="fw-bold text-info mb-2 fs-6">Exemplo de Sprint (3 semanas):</h5>
+                <div class="row g-2 mb-3">
+                    <div class="col-12"><div class="p-2 border rounded bg-light"><h6>Semana 1</h6><small class="text-muted">Modelagem de banco, Login e rotas básicas.</small></div></div>
+                    <div class="col-12"><div class="p-2 border rounded bg-light"><h6>Semana 2</h6><small class="text-muted">Desenvolvimento de formulários, CRUD e buscas.</small></div></div>
+                    <div class="col-12"><div class="p-2 border rounded bg-light"><h6>Semana 3</h6><small class="text-muted">Ajustes de layout, responsividade e deploy.</small></div></div>
+                </div>
+                <button type="button" onclick="navegar('servicos')" class="btn btn-secondary w-100">← Voltar para Serviços</button>
+            </div>
+        </div>
+
+        <div id="servico-cloud" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+                <h2 class="text-dark fw-bold border-bottom pb-3 mb-4 fs-4">☁️ Infraestrutura Cloud</h2>
+                <p class="text-muted small">Escolha da melhor plataforma em nuvem baseada no orçamento disponível.</p>
+                <ul class="small text-muted">
+                    <li><strong>Vercel / Netlify:</strong> Ideal para Front-End moderno.</li>
+                    <li><strong>Render:</strong> Excelente para back-end e projetos de pequeno/médio porte.</li>
+                    <li><strong>AWS / Azure:</strong> Nuvens corporativas complexas.</li>
+                </ul>
+                <button type="button" onclick="navegar('servicos')" class="btn btn-secondary w-100 mt-2">← Voltar para Serviços</button>
+            </div>
+        </div>
+
+        <div id="servico-banco" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+                <h2 class="text-dark fw-bold border-bottom pb-3 mb-4 fs-4">🗄️ Estratégia de Banco de Dados</h2>
+                <p class="text-muted small">Definição do modelo de persistência ideal:</p>
+                <ul class="small text-muted">
+                    <li><strong>Projetos Iniciais:</strong> SQLite pela facilidade de arquivos locais.</li>
+                    <li><strong>Aplicações Web:</strong> PostgreSQL ou MySQL.</li>
+                    <li><strong>Estruturas Flexíveis:</strong> MongoDB (NoSQL).</li>
+                </ul>
+                <button type="button" onclick="navegar('servicos')" class="btn btn-secondary w-100 mt-2">← Voltar para Serviços</button>
+            </div>
+        </div>
+
+        <div id="servico-seguranca" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+                <h2 class="text-dark fw-bold border-bottom pb-3 mb-4 fs-4">🛡️ Segurança da Informação</h2>
+                <p class="text-muted small">Implementação preventiva de boas práticas: Criptografia de senhas (BCrypt), proteção contra ataques SQL Injection através de queries parametrizadas e conformidade técnica básica com a LGPD.</p>
+                <button type="button" onclick="navegar('servicos')" class="btn btn-secondary w-100 mt-2">← Voltar para Serviços</button>
+            </div>
+        </div>
+
+        <div id="servico-assistente" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border mb-4 max-width-600 mx-auto">
+                <h3 class="text-dark border-bottom pb-2 fw-bold text-center mb-4 fs-4">⚡ Assistente de Stack Ideal</h3>
+                <form id="formAssistente" onsubmit="gerarRecomendacao(event)">
+                    <div class="mb-3">
+                        <label class="form-label text-secondary fw-bold small">1. Qual é o tipo do seu projeto?</label>
+                        <select id="tipo" class="form-select" required>
+                            <option value="" disabled selected>Selecione uma opção...</option>
+                            <option value="institucional">Site Institucional / Landing Page</option>
+                            <option value="sistema">Sistema de Gestão / Web App</option>
+                            <option value="ecommerce">Loja Virtual (E-commerce)</option>
+                            <option value="mobile">Aplicativo Mobile</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-secondary fw-bold small">2. Volume estimado de acessos?</label>
+                        <select id="usuarios" class="form-select" required>
+                            <option value="" disabled selected>Selecione uma opção...</option>
+                            <option value="baixo">Baixo (Até 500 usuários ativos)</option>
+                            <option value="alto">Alto (Mais de 5.000 acessos simultâneos)</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label text-secondary fw-bold small">3. Orçamento para infraestrutura?</label>
+                        <select id="orcamento" class="form-select" required>
+                            <option value="" disabled selected>Selecione uma opção...</option>
+                            <option value="gratuito">Mínimo (Ferramentas gratuitas)</option>
+                            <option value="corporativo">Corporativo (Máxima performance)</option>
+                        </select>
+                    </div>
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-info text-white fw-bold btn-lg shadow-sm fs-6">Processar Diagnóstico</button>
+                        <button type="button" class="btn btn-outline-secondary" onclick="navegar('servicos')">Voltar</button>
+                    </div>
+                </form>
+
+                <div id="resultadoConsultoria" class="mt-4 p-3 border border-success rounded bg-light d-none">
+                    <h5 class="fw-bold text-success text-center mb-3 fs-5">✓ Recomendação Gerada!</h5>
+                    <hr>
+                    <div id="conteudoDiagnostico" class="text-dark small"></div>
+                    <button type="button" class="btn btn-sm btn-dark w-100 mt-3" onclick="reiniciarAssistente()">Refazer Simulação</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="contato" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border max-width-600 mx-auto">
+                <h2 class="text-dark border-bottom pb-2 fw-bold mb-4 fs-4">Fale Conosco</h2>
+                <form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso! (Simulação)');">
+                    <div class="mb-3"><label class="form-label text-secondary fw-semibold small">Nome Completo</label><input type="text" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label text-secondary fw-semibold small">E-mail Corporativo</label><input type="email" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label text-secondary fw-semibold small">Mensagem</label><textarea class="form-control" rows="4" required></textarea></div>
+                    <button type="submit" class="btn btn-dark w-100 shadow-sm">Enviar Contato</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="login" class="secao-teste">
+            <div class="row justify-content-center mt-3">
+                <div class="col-12 col-md-5">
+                    <div class="card shadow border-0 rounded-3">
+                        <div class="card-header bg-dark text-white text-center py-3"><h5 class="mb-0 fw-bold fs-6">Acesso Administrativo</h5></div>
+                        <div class="card-body p-4 bg-white">
+                            <form onsubmit="event.preventDefault(); navegar('admin');">
+                                <div class="mb-3"><label class="form-label text-secondary small">Usuário</label><input type="text" class="form-control" value="admin" required></div>
+                                <div class="mb-3"><label class="form-label text-secondary small">Senha</label><input type="password" class="form-control" value="123456" required></div>
+                                <div class="d-grid"><button class="btn btn-info text-white fw-bold shadow-sm" type="submit">Entrar no Painel</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="admin" class="secao-teste">
+            <div class="bg-white p-3 p-md-4 rounded-3 shadow-sm border">
+                <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center border-bottom pb-3 mb-3 gap-2">
+                    <h2 class="fw-bold text-dark m-0 fs-4">Painel Administrativo</h2>
+                    <button type="button" class="btn btn-success fw-bold btn-sm py-2" onclick="navegar('cadastrar')">+ Cadastrar Tecnologia</button>
+                </div>
+                <div class="row g-2 mb-3">
+                    <div class="col-12 col-md-10"><input type="text" class="form-control" placeholder="Pesquisar ferramentas do banco..."></div>
+                    <div class="col-12 col-md-2"><button type="button" class="btn btn-dark w-100" onclick="alert('Busca em tempo de execução ativada no SQLite!')">Pesquisar</button></div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle border small">
+                        <thead class="table-dark">
+                            <tr><th>Tecnologia</th><th>Descrição</th><th class="text-center">Ações</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-bold">Node.js + Express</td>
+                                <td class="text-muted">Aplicações escaláveis e APIs REST rápidas de arquitetura MVC.</td>
+                                <td class="text-center">
+                                    <div class="d-flex gap-1 justify-content-center">
+                                        <button type="button" class="btn btn-warning btn-sm fw-bold" onclick="navegar('editar')">Editar</button>
+                                        <button type="button" class="btn btn-danger btn-sm" onclick="confirm('Deseja excluir?')">Excluir</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="cadastrar" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border max-width-600 mx-auto">
+                <h3 class="text-dark border-bottom pb-2 fw-bold mb-3 fs-5">Nova Tecnologia</h3>
+                <form onsubmit="event.preventDefault(); navegar('admin');">
+                    <div class="mb-3"><label class="form-label text-secondary small">Nome</label><input type="text" class="form-control" required></div>
+                    <div class="mb-3"><label class="form-label text-secondary small">Descrição</label><textarea class="form-control" rows="4" required></textarea></div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-success flex-grow-1" type="submit">Salvar</button>
+                        <button class="btn btn-outline-secondary flex-grow-1" type="button" onclick="navegar('admin')">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="editar" class="secao-teste">
+            <div class="bg-white p-4 rounded-3 shadow-sm border max-width-600 mx-auto">
+                <h3 class="text-dark border-bottom pb-2 fw-bold mb-3 fs-5">Modificar Tecnologia</h3>
+                <form onsubmit="event.preventDefault(); navegar('admin');">
+                    <div class="mb-3"><label class="form-label text-secondary small">Nome</label><input type="text" class="form-control" value="Node.js + Express" required></div>
+                    <div class="mb-3"><label class="form-label text-secondary small">Descrição</label><textarea class="form-control" rows="4" required>Aplicações escaláveis e APIs REST rápidas de arquitetura MVC.</textarea></div>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-warning text-dark fw-bold flex-grow-1" type="submit">Atualizar</button>
+                        <button class="btn btn-outline-secondary flex-grow-1" type="button" onclick="navegar('admin')">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-dark text-white-50 text-center py-3 mt-5 border-top border-secondary small">
+        <div class="container">
+            <div>&copy; 2026 TechEasy Consultoria</div>
+        </div>
+    </footer>
+
+    <script>
+        function navegar(idSecao) {
+            // Oculta todas as seções
+            const secoes = document.querySelectorAll('.secao-teste');
+            secoes.forEach(secao => secao.classList.remove('secao-ativa'));
+            
+            // Mostra a seção desejada
+            const alvo = document.getElementById(idSecao);
+            if (alvo) {
+                alvo.classList.add('secao-ativa');
+            }
+
+            // CORREÇÃO PARA CELULAR: Fecha o menu hambúrguer automaticamente após clicar em um link
+            const menuNavbar = document.getElementById('navbarNav');
+            if (menuNavbar.classList.contains('show')) {
+                const bootstrapMenu = bootstrap.Collapse.getInstance(menuNavbar);
+                if (bootstrapMenu) {
+                    bootstrapMenu.hide();
+                } else {
+                    menuNavbar.classList.remove('show');
+                }
+            }
+
+            window.scrollTo(0, 0);
+        }
+
+        function gerarRecomendacao(event) {
+            event.preventDefault();
+            const tipo = document.getElementById('tipo').value;
+            const usuarios = document.getElementById('usuarios').value;
+            const orcamento = document.getElementById('orcamento').value;
+
+            let front = "HTML5 + CSS3 + Bootstrap 5";
+            let back = "Node.js + Express";
+            let banco = "SQLite (Local)";
+            let nuvem = "Render (Plano Gratuito)";
+
+            if (tipo === 'institucional') {
+                front = "HTML5 + Tailwind CSS";
+                back = "Não aplicável (Site Estático)";
+                banco = "Não aplicável";
+                nuvem = "Vercel (Plano Free)";
+            } else if (tipo === 'ecommerce') {
+                front = "React.js + Bootstrap";
+                back = "Node.js (API REST)";
+                banco = "PostgreSQL (Robusto)";
+                nuvem = "Render Cloud";
+            } else if (tipo === 'mobile') {
+                front = "Framework Flutter (Dart)";
+                back = "Node.js / Firebase";
+                banco = "MongoDB (NoSQL)";
+                nuvem = "Google Cloud Platform";
+            }
+
+            if (usuarios === 'alto' || orcamento === 'corporativo') {
+                if(banco === 'SQLite (Local)') banco = "PostgreSQL Cluster";
+                nuvem = "Amazon Web Services (AWS Cloud Elástica)";
+            }
+
+            document.getElementById('conteudoDiagnostico').innerHTML = `
+                <p><strong>Projeto:</strong> <span class="text-capitalize">${tipo}</span></p>
+                <div class="p-3 bg-white border rounded mb-2">
+                    <p class="m-1"><strong>🎨 Front-End:</strong> ${front}</p>
+                    <p class="m-1"><strong>⚙️ Back-End:</strong> ${back}</p>
+                    <p class="m-1"><strong>🗄️ Banco de Dados:</strong> ${banco}</p>
+                    <p class="m-1"><strong>☁️ Hospedagem:</strong> ${nuvem}</p>
+                </div>
+            `;
+            document.getElementById('formAssistente').classList.add('d-none');
+            document.getElementById('resultadoConsultoria').classList.remove('d-none');
+        }
+
+        function reiniciarAssistente() {
+            document.getElementById('formAssistente').reset();
+            document.getElementById('formAssistente').classList.remove('d-none');
+            document.getElementById('resultadoConsultoria').classList.add('d-none');
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
