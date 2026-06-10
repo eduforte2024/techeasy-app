@@ -1,0 +1,26 @@
+<%- include('partials/header') %>
+<div class="bg-white p-4 rounded-3 shadow-sm border mb-4">
+    <% if (tipo === 'arquitetura') { %>
+        <h2 class="text-dark fw-bold border-bottom pb-3 mb-4 fs-4">⚡ Consultoria de Arquitetura</h2>
+        <h5 class="fw-bold text-info fs-6">O que é?</h5>
+        <p class="text-muted small">Ajudamos sua empresa a definir quais frameworks e linguagens adotar de forma estruturada.</p>
+        <h5 class="fw-bold text-info mb-2 fs-6">Tabela Prática de Recomendações</h5>
+        <div class="table-responsive mb-3">
+            <table class="table table-bordered align-middle small">
+                <thead class="table-dark">
+                    <tr><th>Cenário</th><th>Recomendação Ideal</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Institucional</td><td>HTML5 + CSS3 (Vercel)</td></tr>
+                    <tr><td>ERP / Sistema</td><td>Node.js + Express + MySQL</td></tr>
+                    <tr><td>E-commerce</td><td>React.js + Node.js + PostgreSQL</td></tr>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <h2 class="text-dark fw-bold border-bottom pb-3 mb-4 fs-4">🔍 Auditoria e Soluções</h2>
+        <p class="text-muted small">Análise técnica detalhada sob demanda no banco SQLite.</p>
+    <% } %>
+    <a href="/servicos" class="btn btn-secondary w-100 mt-2">← Voltar para Serviços</a>
+</div>
+<%- include('partials/footer') %>
