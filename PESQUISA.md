@@ -1,7 +1,7 @@
 # Relatório Técnico de Pesquisa: Análise Arquitetural do Sistema de Biblioteca
 
-**Para:** Diretor de Tecnologia (CTO)  
-**De:** Equipe de Desenvolvimento Júnior  
+**Para:** Usuarios da area de tacnologia  
+**De:** Rduarda Silva Forte  
 **Assunto:** Levantamento técnico, ciclo de vida de componentes, mapeamento objeto-relacional e análise de escalabilidade do banco de dados.  
 
 ---
